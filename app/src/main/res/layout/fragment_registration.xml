@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".presentation.registration.RegistrationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/registrationTV"
+            style="@style/headingText"
+            android:text="@string/registration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/emailTV"
+            style="@style/registerNormalText"
+            android:text="@string/emailTV"
+            app:layout_constraintStart_toStartOf="@+id/emailET"
+            app:layout_constraintTop_toBottomOf="@+id/registrationTV" />
+
+        <EditText
+            android:id="@+id/emailET"
+            style="@style/registerEditText"
+            android:autofillHints="emailAddress"
+            android:hint="@string/registration_hint_email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTV" />
+
+        <TextView
+            android:id="@+id/passwordTV"
+            style="@style/registerNormalText"
+            android:text="@string/passwordTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordET"
+            app:layout_constraintTop_toBottomOf="@+id/emailET" />
+
+        <EditText
+            android:id="@+id/passwordET"
+            style="@style/registerEditText"
+            android:autofillHints="password"
+            android:hint="@string/registration_hint_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
+
+        <TextView
+            android:id="@+id/passwordRepeatTV"
+            style="@style/registerNormalText"
+            android:text="@string/passwordRepeatTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordRepeatET"
+            app:layout_constraintTop_toBottomOf="@+id/passwordET" />
+
+        <EditText
+            android:id="@+id/passwordRepeatET"
+            style="@style/registerEditText"
+            android:autofillHints="password"
+            android:hint="@string/registration_hint_repeat_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordRepeatTV" />
+
+        <TextView
+            android:id="@+id/lastnameTV"
+            style="@style/registerNormalText"
+            android:text="@string/lastnameTV"
+            app:layout_constraintStart_toStartOf="@+id/lastnameET"
+            app:layout_constraintTop_toBottomOf="@+id/passwordRepeatET" />
+
+        <EditText
+            android:id="@+id/lastnameET"
+            style="@style/registerEditText"
+            android:autofillHints="username"
+            android:hint="@string/registration_hint_lastname"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastnameTV" />
+
+        <TextView
+            android:id="@+id/nameTV"
+            style="@style/registerNormalText"
+            android:text="@string/registration_name"
+            app:layout_constraintStart_toStartOf="@+id/nameET"
+            app:layout_constraintTop_toBottomOf="@+id/lastnameET" />
+
+        <EditText
+            android:id="@+id/nameET"
+            style="@style/registerEditText"
+            android:autofillHints="username"
+            android:hint="@string/registration_hint_name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+
+        <TextView
+            android:id="@+id/mailTV"
+            style="@style/registerNormalText"
+            android:text="@string/registration_teacher_mail"
+            app:layout_constraintStart_toStartOf="@+id/teachersEmailET"
+            app:layout_constraintTop_toBottomOf="@+id/nameET" />
+
+        <EditText
+            android:id="@+id/teachersEmailET"
+            style="@style/registerEditText"
+            android:autofillHints="emailAddress"
+            android:hint="@string/registration_hint_mail"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mailTV" />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_margin"
+            android:text="@string/register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/teachersEmailET" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

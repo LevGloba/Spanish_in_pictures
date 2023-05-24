@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "837311836640",
+    "project_id": "spanishinpictures-451b3",
+    "storage_bucket": "spanishinpictures-451b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837311836640:android:888b064b6be88056e33b85",
+        "android_client_info": {
+          "package_name": "com.example.spanish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837311836640-3ijcv63as7d5iljq3rkrrluao3s4he0n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spanish",
+            "certificate_hash": "5b0155542ca4f66abbccb7e30d39fa815648202a"
+          }
+        },
+        {
+          "client_id": "837311836640-53bkqdefn8ftk1ssr5egva12d50rv7gu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmW38VObpl-W_4l_By4qsa3SNRZt0myqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837311836640-53bkqdefn8ftk1ssr5egva12d50rv7gu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
