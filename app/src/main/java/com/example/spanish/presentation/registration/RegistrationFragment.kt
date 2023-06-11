@@ -13,20 +13,25 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.spanish.R
 import com.example.spanish.databinding.FragmentRegistrationBinding
+import com.example.spanish.di.model.ChangeStringToolBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class RegistrationFragment : Fragment() {
 
     private lateinit var viewModel: RegistrationViewModel
     private lateinit var binding: FragmentRegistrationBinding
-
+    @Inject
+    lateinit var changeStringToolBar: ChangeStringToolBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        changeStringToolBar.setTheme(getString(R.string.text_logo))
+        changeStringToolBar.changeForTheme(requireActivity())
         return inflater.inflate(R.layout.fragment_registration, container, false)
     }
 

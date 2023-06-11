@@ -25,7 +25,7 @@
     <string name="choose_theme">ВЫБРАТЬ ТЕМУ</string>
     <string name="fructs">Фрукты</string>
     <string name="choose_mode_test">ВЫБОР РЕЖИМА ТЕСТИРОВАНИЯ</string>
-    <string name="name_button_text">ТЕСТ</string>
+    <string name="test">ТЕСТ</string>
     <string name="enter_a_name_from_the_image">ПО КАРТИНКЕ ВВЕСТИ НАЗВАНИЕ</string>
     <string name="enter_count_tasks">ВВЕДИТЕ\nКОЛИЧЕСТВО\nЗАДАНИЙ</string>
     <string name="button_start">НАЧАТЬ</string>
@@ -34,12 +34,13 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="answer">ОТВЕТИТЬ</string>
     <string name="singOut">ВЫЙТИ</string>
-    <string name="enter_the_answer">ВВЕДИТЕ НАЗВАНИЕ</string>
+    <string name="enter_the_answer">ВВЕДИТЕ НАЗВАНИЕ ПО-ИСПАНСКИ</string>
     <string name="fauna">ФАУНА</string>
     <string name="FLORA">ФЛОРА</string>
-    <string name="Trening">ТРЕНЕРОВКА</string>
+    <string name="Trening">ТРЕНИРОВКА</string>
     <string name="_5_5">5/5</string>
     <string name="RESULT">ИТОГ</string>
     <string name="exit_test">ЗАВЕРШИТЬ</string>
     <string name="_1_5">от 1 до 5</string>
+    <string name="no_try">НЕ ПРАВИЛЬНО</string>
 </resources>

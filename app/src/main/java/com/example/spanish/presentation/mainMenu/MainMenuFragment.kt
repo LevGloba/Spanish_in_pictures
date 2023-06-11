@@ -10,18 +10,22 @@ import androidx.navigation.navOptions
 import com.example.spanish.R
 import com.example.spanish.databinding.FragmentMainMenuBinding
 import com.example.spanish.di.SingltonObject
+import com.example.spanish.di.model.ChangeStringToolBar
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainMenuFragment : Fragment() {
 
     private lateinit var binding: FragmentMainMenuBinding
-
+    @Inject
+    lateinit var changeStringToolBar: ChangeStringToolBar
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        changeStringToolBar.setTheme(getString(R.string.text_logo))
+        changeStringToolBar.changeForTheme(requireActivity())
         return inflater.inflate(R.layout.fragment_main_menu, container, false)
     }
 

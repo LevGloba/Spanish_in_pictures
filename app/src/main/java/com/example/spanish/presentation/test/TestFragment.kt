@@ -68,8 +68,8 @@ class TestFragment : Fragment() {
                             Log.e(null, "it = ${it.img}")
                             loadImg(it.img)
                         }
-                        Test.ErrorAnswer -> {
-                            binding.enterAnswer.error = ""
+                        is Test.ErrorAnswer -> {
+                            binding.enterAnswer.error = it.error
                         }
                         is Test.NextStep -> findNavController().navigate(R.id.finishFragment, bundleOf(
                             "countAnswer" to it.count,
@@ -84,7 +84,7 @@ class TestFragment : Fragment() {
 
     private fun listener() {
         binding.buttonAnswer.setOnClickListener {
-            viewModel.check(binding.enterAnswer.text.toString().trim())
+            viewModel.check(binding.enterAnswer.text.toString().trim().lowercase())
         }
     }
 

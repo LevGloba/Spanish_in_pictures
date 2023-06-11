@@ -11,11 +11,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.spanish.R
 import com.example.spanish.databinding.FragmentFinishBinding
+import com.example.spanish.di.model.ChangeStringToolBar
+import javax.inject.Inject
 
 class FinishFragment: Fragment(R.layout.fragment_finish) {
 
     private lateinit var binding: FragmentFinishBinding
     private val viewModel: FinishViewModel by viewModels()
+    @Inject
+    lateinit var changeStringToolBar: ChangeStringToolBar
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +41,7 @@ class FinishFragment: Fragment(R.layout.fragment_finish) {
 
     private fun listener() {
         binding.btFinish.setOnClickListener {
+            //changeStringToolBar.change(requireActivity(), getString(R.string.text_logo))
             findNavController().navigate(R.id.mainMenuFragment, null, navOptions {
                 popUpTo(R.id.mainMenuFragment) {
                     inclusive = true

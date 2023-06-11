@@ -10,18 +10,23 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.spanish.R
 import com.example.spanish.databinding.FragmentModeTestingBinding
+import com.example.spanish.di.model.ChangeStringToolBar
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ModeTestingFragment : Fragment() {
 
     private lateinit var viewModel: ModeTestingViewModel
     private lateinit var binding: FragmentModeTestingBinding
+    @Inject
+    lateinit var changeStringToolBar: ChangeStringToolBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        changeStringToolBar.changeForTheme(requireActivity())
         return inflater.inflate(R.layout.fragment_mode_testing, container, false)
     }
 
@@ -36,9 +41,13 @@ class ModeTestingFragment : Fragment() {
         binding = FragmentModeTestingBinding.bind(view)
         binding.run {
             buttonTest.setOnClickListener {
+                changeStringToolBar.setMode(getString(R.string.test))
+                changeStringToolBar.changeForMode(requireActivity())
                 nextStep(null)
             }
             buttonTrening.setOnClickListener {
+                changeStringToolBar.setMode(getString(R.string.Trening))
+                changeStringToolBar.changeForMode(requireActivity())
                 nextStep(bundleOf("skipCountTask" to true))
             }
         }

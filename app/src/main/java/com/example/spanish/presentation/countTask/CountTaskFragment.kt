@@ -10,7 +10,9 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.spanish.R
 import com.example.spanish.databinding.FragmentCountTaskBinding
+import com.example.spanish.di.model.ChangeStringToolBar
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CountTaskFragment : Fragment() {

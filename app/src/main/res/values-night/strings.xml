@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sing_in">Sing in</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="sing_up">sing_up</string>
+    <string name="app_name">Spanish in pictures</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="registration">Регистрация</string>
+    <string name="registration_hint_email">Email</string>
+    <string name="registration_hint_password">Пароль</string>
+    <string name="registration_hint_repeat_password">Повторите пароль</string>
+    <string name="registration_hint_lastname">Фамилия</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="emailTV">Введите свой Email</string>
+    <string name="passwordTV">Придумайте пароль</string>
+    <string name="passwordRepeatTV">Повторите пароль</string>
+    <string name="lastnameTV">Введите свою Фамилию</string>
+    <string name="registration_name">Введите своё имя</string>
+    <string name="registration_hint_name">Имя</string>
+    <string name="registration_teacher_mail">Введите почту учителя</string>
+    <string name="registration_hint_mail">Почта</string>
+    <string name="text_logo">Испанский язык в картинках</string>
+    <string name="choose_theme">ВЫБРАТЬ ТЕМУ</string>
+    <string name="fructs">Фрукты</string>
+    <string name="choose_mode_test">ВЫБОР РЕЖИМА ТЕСТИРОВАНИЯ</string>
+    <string name="test">ТЕСТ</string>
+    <string name="enter_a_name_from_the_image">ПО КАРТИНКЕ ВВЕСТИ НАЗВАНИЕ</string>
+    <string name="enter_count_tasks">ВВЕДИТЕ\nКОЛИЧЕСТВО\nЗАДАНИЙ</string>
+    <string name="button_start">НАЧАТЬ</string>
+    <string name="Enter">ВОЙТИ</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="answer">ОТВЕТИТЬ</string>
     <string name="singOut">ВЫЙТИ</string>
+    <string name="enter_the_answer">ВЕДИТЕ НАЗВАНИЕ ПО-ИСПАНСКИ</string>
+    <string name="fauna">ФАУНА</string>
+    <string name="FLORA">ФЛОРА</string>
+    <string name="Trening">ТРЕНИРОВКА</string>
+    <string name="_5_5">5/5</string>
+    <string name="RESULT">ИТОГ</string>
+    <string name="exit_test">ЗАВЕРШИТЬ</string>
+    <string name="_1_5">от 1 до 5</string>
+    <string name="no_try">НЕ ПРАВИЛЬНО</string>
 </resources>

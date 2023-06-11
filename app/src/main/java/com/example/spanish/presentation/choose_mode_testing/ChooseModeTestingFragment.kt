@@ -7,15 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.spanish.MainActivity
 import com.example.spanish.R
 import com.example.spanish.databinding.FragmentChooseModeTestingBinding
+import com.example.spanish.di.model.ChangeStringToolBar
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ChooseModeTestingFragment : Fragment() {
 
     private lateinit var viewModel: ChooseModeTestingViewModel
     private lateinit var binding: FragmentChooseModeTestingBinding
+
+    @Inject
+    lateinit var changeStringToolBar: ChangeStringToolBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +39,16 @@ class ChooseModeTestingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentChooseModeTestingBinding.bind(view)
+
+        binding.imageMain.run {
+            when (changeStringToolBar.getTheme()) {
+                getString(R.string.FLORA) ->
+                    setImageResource(R.drawable.fructs)
+
+                getString(R.string.fauna) ->
+                    setImageResource(R.drawable.animals)
+            }
+        }
         binding.buttonAnswer.setOnClickListener {
             if (arguments?.getBoolean("skipCountTask", false) == true)
                 findNavController().navigate(R.id.testFragment)

@@ -1,12 +1,13 @@
 package com.example.spanish.presentation.test
 
 import android.util.Log
+import androidx.core.content.res.TypedArrayUtils.getString
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.spanish.R
 import com.example.spanish.di.TakeDataFromFireStore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,7 +20,7 @@ open class Test {
     data class TestImg(val img: String?) : Test()
     object PlayLoad : Test()
     object StopLoad : Test()
-    object ErrorAnswer: Test()
+    data class ErrorAnswer(val error: String): Test()
     data class NextStep(val count: Int): Test()
     object ClearEditText: Test()
 }
@@ -67,7 +68,7 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
             val values = viewMap?.values?.toList()
             val randomInt = (0 until size).random()
             _test.emit(Test.TestImg(values?.get(randomInt).toString()))
-            answer = keys?.get(randomInt)
+            answer = keys?.get(randomInt)?.lowercase()
             Log.e(null,"key = $answer\nvalue = ${values?.get(randomInt)}")
             viewMap?.remove(answer)
         }
@@ -85,8 +86,7 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
                     countAnswer += 1
                     countTask -= 1
                     _test.emit(Test.NextStep(countAnswer))
-                } else
-                    _test.emit(Test.ErrorAnswer)
+                }
             }
             else
             {
@@ -106,7 +106,7 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
                     _test.emit(Test.NextStep(countAnswer))
                 }
                 else {
-                    _test.emit(Test.ErrorAnswer)
+                    _test.emit(Test.ErrorAnswer(answer?: ""))
                 }
             }
         }

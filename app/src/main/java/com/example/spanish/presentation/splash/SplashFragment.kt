@@ -7,23 +7,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.spanish.R
 import com.example.spanish.di.SingltonObject
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.spanish.di.model.ChangeStringToolBar
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SplashFragment : Fragment() {
 
     private lateinit var viewModel: SplashViewModel
+    @Inject
+    lateinit var changeStringToolBar: ChangeStringToolBar
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        changeStringToolBar.setTheme(getString(R.string.text_logo))
+        changeStringToolBar.changeForTheme(requireActivity())
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 

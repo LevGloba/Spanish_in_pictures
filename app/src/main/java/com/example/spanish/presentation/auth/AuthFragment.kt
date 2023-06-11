@@ -14,8 +14,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.spanish.R
 import com.example.spanish.databinding.FragmentAuthBinding
+import com.example.spanish.di.model.ChangeStringToolBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AuthFragment : Fragment() {
@@ -23,11 +25,15 @@ class AuthFragment : Fragment() {
 
     private lateinit var viewModel: AuthViewModel
     private lateinit var binding: FragmentAuthBinding
+    @Inject
+    lateinit var changeStringToolBar: ChangeStringToolBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        changeStringToolBar.setTheme(getString(R.string.text_logo))
+        changeStringToolBar.changeForTheme(requireActivity())
         return inflater.inflate(R.layout.fragment_auth, container, false)
     }
 
