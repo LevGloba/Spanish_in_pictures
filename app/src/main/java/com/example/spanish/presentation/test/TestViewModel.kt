@@ -33,12 +33,8 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
     val test: StateFlow<Test> = _test.asStateFlow()
 
     private var viewMap: MutableMap<String, Any>? = null
-    private var answer: String? = ""
-        set(value) {
-            if (value != null) {
-                field = value.filterNot { it.isWhitespace() }.lowercase()
-            }
-        }
+    private var answer: String = ""
+
     private var countAnswer = 0
     private var countTask  = 0
     private var modeTesting = true
@@ -73,45 +69,54 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
             val values = viewMap?.values?.toList()
             val randomInt = (0 until size).random()
             _test.emit(Test.TestImg(values?.get(randomInt).toString()))
-            answer = keys?.get(randomInt)
+            answer = keys?.get(randomInt)?: ""
             Log.e(null,"key = $answer\nvalue = ${values?.get(randomInt)}")
             viewMap?.remove(answer)
         }
     }
 
     fun check(s: String?) {
+        val str = answer.filterNot { it.isWhitespace() }.lowercase()
         viewModelScope.launch {
-            if (modeTesting) {
-                if (s == answer && viewMap?.size != 0 && viewMap != null) {
-                    _test.emit(Test.ClearEditText)
-                    countAnswer += 1
+            when (modeTesting) {
+                true -> {
+                    if (str.isNotEmpty())
+                        when (s) {
+                            str -> {
+                                if (!viewMap.isNullOrEmpty()) {
+                                    _test.emit(Test.ClearEditText)
+                                    countAnswer += 1
+                                    countTask -= 1
+                                    random()
+                                } else {
+                                    countAnswer += 1
+                                    _test.emit(Test.NextStep(countAnswer))
+                                }
+                            }
+                            else -> {
+                                _test.emit(Test.ErrorAnswer(answer))
+                            }
+                        }
+                    else
+                        _test.emit(Test.Error("Запрос не удалось выполнить." +
+                                "\nНевозможно проверить ответ, перезайдите на вкладку снова"))
+                }
+                false -> {
                     countTask -= 1
-                    random()
-                } else if (s == answer) {
-                    countAnswer += 1
-                    countTask -= 1
-                    _test.emit(Test.NextStep(countAnswer))
-                }
-            }
-            else
-            {
-                countTask -= 1
-                if (s == answer && viewMap != null && viewMap?.size != 0 && countTask != 0) {
-                    _test.emit(Test.ClearEditText)
-                    countAnswer += 1
-                    random()
-                } else if (s != answer && viewMap != null && viewMap?.size != 0 && countTask != 0) {
-                    _test.emit(Test.ClearEditText)
-                    random()
-                }
-                else if (s == answer && countTask == 0) {
-                    countAnswer += 1
-                    _test.emit(Test.NextStep(countAnswer))
-                } else if(s != answer && countTask == 0) {
-                    _test.emit(Test.NextStep(countAnswer))
-                }
-                else {
-                    _test.emit(Test.ErrorAnswer(answer?: ""))
+                    when (countTask) {
+                        0 -> {
+                            if (s.equals(str))
+                                countAnswer += 1
+                            _test.emit(Test.NextStep(countAnswer))
+                        }
+
+                        else -> {
+                            if (s.equals(answer.filterNot { it.isWhitespace() }.lowercase()))
+                                countAnswer += 1
+                            _test.emit(Test.ClearEditText)
+                            random()
+                        }
+                    }
                 }
             }
         }

@@ -43,7 +43,7 @@ class TestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         countTask = arguments?.getInt("countTasks", 5) ?: 5
-        modeTesting = arguments?.getBoolean("modeTesting", true)?: true
+        modeTesting = arguments?.getBoolean("modeTesting", false)?: false
         Log.e(null, "countTask = $countTask\nmodeTesting = $modeTesting")
         binding = FragmentTestBinding.bind(view)
         binding.enterAnswer.imeHintLocales = LocaleList(Locale("es", "ES"))
