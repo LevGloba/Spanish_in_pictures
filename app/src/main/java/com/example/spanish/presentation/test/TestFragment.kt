@@ -84,7 +84,8 @@ class TestFragment : Fragment() {
 
     private fun listener() {
         binding.buttonAnswer.setOnClickListener {
-            viewModel.check(binding.enterAnswer.text.toString().trim().lowercase())
+            val str = binding.enterAnswer.text.toString().filterNot { it.isWhitespace() }.lowercase()
+            viewModel.check(str)
         }
     }
 

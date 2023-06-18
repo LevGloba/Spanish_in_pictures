@@ -34,6 +34,11 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
 
     private var viewMap: MutableMap<String, Any>? = null
     private var answer: String? = ""
+        set(value) {
+            if (value != null) {
+                field = value.filterNot { it.isWhitespace() }.lowercase()
+            }
+        }
     private var countAnswer = 0
     private var countTask  = 0
     private var modeTesting = true
@@ -68,7 +73,7 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
             val values = viewMap?.values?.toList()
             val randomInt = (0 until size).random()
             _test.emit(Test.TestImg(values?.get(randomInt).toString()))
-            answer = keys?.get(randomInt)?.lowercase()
+            answer = keys?.get(randomInt)
             Log.e(null,"key = $answer\nvalue = ${values?.get(randomInt)}")
             viewMap?.remove(answer)
         }
