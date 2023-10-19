@@ -47,10 +47,20 @@ class CountTaskFragment : Fragment() {
             try {
                 val countTask = editTextEnterCountTasks.text.toString().toInt()
                 if (countTask in 1..5)
-                    findNavController().navigate(R.id.testFragment, bundleOf(
-                        "countTasks" to countTask,
-                        "modeTesting" to false
-                    ))
+                    when(arguments?.getBoolean("img")) {
+                        true -> findNavController().navigate(
+                            R.id.testFragment, bundleOf(
+                                "countTasks" to countTask,
+                                "modeTesting" to false
+                            )
+                        )
+                        else -> findNavController().navigate(
+                            R.id.testMP3Fragment, bundleOf(
+                                "countTasks" to countTask,
+                                "modeTesting" to false
+                            )
+                        )
+                    }
                 else
                     editTextEnterCountTasks.error = "Введите цифру от 1 до 5"
             }catch (e: Throwable) {

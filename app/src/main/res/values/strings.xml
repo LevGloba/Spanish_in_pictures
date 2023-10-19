@@ -43,4 +43,6 @@
     <string name="exit_test">ЗАВЕРШИТЬ</string>
     <string name="_1_5">от 1 до 5</string>
     <string name="no_try">НЕ ПРАВИЛЬНО</string>
+    <string name="mp3">MP3</string>
+    <string name="enter_a_name_from_the_sound">ПО ЗВУКАМ ВВЕСТИ НАЗВАНИЕ</string>
 </resources>

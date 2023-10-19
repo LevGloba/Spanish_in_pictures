@@ -2,6 +2,7 @@ package com.example.spanish.di
 
 import com.example.spanish.di.model.ChangeStringToolBar
 import com.example.spanish.domain.ChangeStringToolBarImp
+import com.example.spanish.domain.SaveResultImpl
 import com.example.spanish.domain.TakeDataFromFireStoreImpl
 import com.example.spanish.domain.TakeRulseImpl
 import dagger.Binds
@@ -25,4 +26,8 @@ abstract class ProvideModule {
     @Singleton
     @Binds
     abstract fun provideChangeStringToolBar(changeStringToolBarImp: ChangeStringToolBarImp): ChangeStringToolBar
+
+    @Singleton
+    @Binds
+    abstract fun provideSaveResult(saveResultImpl: SaveResultImpl): SaveResult
 }

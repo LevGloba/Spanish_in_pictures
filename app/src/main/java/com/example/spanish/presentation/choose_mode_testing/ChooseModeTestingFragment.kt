@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.spanish.MainActivity
 import com.example.spanish.R
@@ -54,6 +55,14 @@ class ChooseModeTestingFragment : Fragment() {
                 findNavController().navigate(R.id.testFragment)
             else
                 findNavController().navigate(R.id.countTaskFragment)
+        }
+        binding.buttonMp3.setOnClickListener {
+            if (arguments?.getBoolean("skipCountTask", false) == true)
+                findNavController().navigate(R.id.testMP3Fragment)
+            else
+                findNavController().navigate(R.id.countTaskFragment, bundleOf(
+                    "img" to false
+                ))
         }
     }
 

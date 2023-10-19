@@ -29,6 +29,9 @@
             android:name="skipCountTask"
             app:argType="boolean"
             android:defaultValue="false" />
+        <action
+            android:id="@+id/action_chooseModeTestingFragment_to_testMP3Fragment"
+            app:destination="@id/testMP3Fragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseThemeFragment"
@@ -53,13 +56,20 @@
         android:name="com.example.spanish.presentation.countTask.CountTaskFragment"
         android:label="fragment_count_task"
         tools:layout="@layout/fragment_count_task" >
+        <argument
+            android:name="img"
+            app:argType="boolean"
+            android:defaultValue="true"/>
         <action
             android:id="@+id/action_countTaskFragment_to_testFragment"
             app:destination="@id/testFragment" />
+        <action
+            android:id="@+id/action_countTaskFragment_to_testMP3Fragment"
+            app:destination="@id/testMP3Fragment" />
     </fragment>
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.example.spanish.presentation.test.TestFragment"
+        android:name="com.example.spanish.presentation.test.img.TestFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" >
         <argument
@@ -86,6 +96,23 @@
             android:name="countAnswer"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="countTasks"
+            app:argType="integer"
+            android:defaultValue="5" />
+    </fragment>
+    <fragment
+        android:id="@+id/testMP3Fragment"
+        android:name="com.example.spanish.presentation.test.mp3.TestMP3Fragment"
+        android:label="TestMP3Fragment"
+        tools:layout="@layout/fragment_test_mp3">
+        <action
+            android:id="@+id/action_testMP3Fragment_to_finishFragment"
+            app:destination="@id/finishFragment" />
+        <argument
+            android:name="modeTesting"
+            app:argType="boolean"
+            android:defaultValue="true" />
         <argument
             android:name="countTasks"
             app:argType="integer"

@@ -1,4 +1,4 @@
-package com.example.spanish.presentation.test
+package com.example.spanish.presentation.test.img
 
 import android.os.Bundle
 import android.os.LocaleList
@@ -20,7 +20,6 @@ import com.example.spanish.databinding.FragmentTestBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Locale
-import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class TestFragment : Fragment() {

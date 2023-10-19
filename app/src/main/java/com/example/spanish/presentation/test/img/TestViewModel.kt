@@ -1,10 +1,9 @@
-package com.example.spanish.presentation.test
+package com.example.spanish.presentation.test.img
 
 import android.util.Log
-import androidx.core.content.res.TypedArrayUtils.getString
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.spanish.R
+import com.example.spanish.di.SaveResult
 import com.example.spanish.di.TakeDataFromFireStore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -26,17 +25,22 @@ open class Test {
 }
 
 @HiltViewModel
-class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeDataFromFireStore): ViewModel() {
+class TestViewModel @Inject constructor(
+    private val takeDataFromFireStore: TakeDataFromFireStore,
+    private val saveResult: SaveResult
+    ): ViewModel() {
 
 
     private val _test = MutableStateFlow(Test())
     val test: StateFlow<Test> = _test.asStateFlow()
 
     private var viewMap: MutableMap<String, Any>? = null
+    private val answersMap = mutableMapOf<String,String>()
     private var answer: String = ""
 
     private var countAnswer = 0
     private var countTask  = 0
+    private var task = 0
     private var modeTesting = true
 
     init {
@@ -60,6 +64,7 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
     fun setCountTaskAndModeTesting(v: Int, b: Boolean) {
         countTask = v
         modeTesting = b
+        task = v
     }
 
     private fun random() {
@@ -98,15 +103,25 @@ class TestViewModel @Inject constructor(private val takeDataFromFireStore: TakeD
                             }
                         }
                     else
-                        _test.emit(Test.Error("Запрос не удалось выполнить." +
-                                "\nНевозможно проверить ответ, перезайдите на вкладку снова"))
+                        _test.emit(
+                            Test.Error(
+                                "Запрос не удалось выполнить." +
+                                        "\nНевозможно проверить ответ, перезайдите на вкладку снова"
+                            )
+                        )
                 }
                 false -> {
                     countTask -= 1
+                    answersMap[answer] = s.orEmpty()
                     when (countTask) {
                         0 -> {
                             if (s.equals(str))
                                 countAnswer += 1
+                            saveResult.save(
+                                countAnswer = countAnswer,
+                                answers = answersMap,
+                                countTask = task
+                            )
                             _test.emit(Test.NextStep(countAnswer))
                         }
 

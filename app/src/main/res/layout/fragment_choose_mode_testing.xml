@@ -18,7 +18,7 @@
 
     <Button
         android:id="@+id/button_answer"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/enter_a_name_from_the_image"
         app:layout_constraintTop_toBottomOf="@id/image_main"
@@ -27,6 +27,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="24sp"
         android:gravity="center"/>
+
+    <Button
+        android:id="@+id/button_mp3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_a_name_from_the_sound"
+        app:layout_constraintTop_toBottomOf="@id/button_answer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
