@@ -75,67 +75,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordRepeatTV" />
 
-        <TextView
-            android:id="@+id/lastnameTV"
-            style="@style/registerNormalText"
-            android:text="@string/lastnameTV"
-            app:layout_constraintStart_toStartOf="@+id/lastnameET"
-            app:layout_constraintTop_toBottomOf="@+id/passwordRepeatET" />
-
-        <EditText
-            android:id="@+id/lastnameET"
-            style="@style/registerEditText"
-            android:autofillHints="username"
-            android:hint="@string/registration_hint_lastname"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lastnameTV" />
-
-        <TextView
-            android:id="@+id/nameTV"
-            style="@style/registerNormalText"
-            android:text="@string/registration_name"
-            app:layout_constraintStart_toStartOf="@+id/nameET"
-            app:layout_constraintTop_toBottomOf="@+id/lastnameET" />
-
-        <EditText
-            android:id="@+id/nameET"
-            style="@style/registerEditText"
-            android:autofillHints="username"
-            android:hint="@string/registration_hint_name"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameTV" />
-
-        <TextView
-            android:id="@+id/mailTV"
-            style="@style/registerNormalText"
-            android:text="@string/registration_teacher_mail"
-            app:layout_constraintStart_toStartOf="@+id/teachersEmailET"
-            app:layout_constraintTop_toBottomOf="@+id/nameET" />
-
-        <EditText
-            android:id="@+id/teachersEmailET"
-            style="@style/registerEditText"
-            android:autofillHints="emailAddress"
-            android:hint="@string/registration_hint_mail"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mailTV" />
-
         <Button
             android:id="@+id/registerBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/app_margin"
+            android:layout_marginTop="160dp"
             android:text="@string/register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.485"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/teachersEmailET" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordRepeatET" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

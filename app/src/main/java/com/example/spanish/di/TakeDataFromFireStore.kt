@@ -6,5 +6,4 @@ import com.google.firebase.firestore.DocumentSnapshot
 
 interface TakeDataFromFireStore {
    suspend fun takePictcher(): Task<DocumentSnapshot>
-   suspend fun taleMp3(): Task<DocumentSnapshot>
 }

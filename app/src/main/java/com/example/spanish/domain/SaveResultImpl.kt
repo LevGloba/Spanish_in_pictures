@@ -10,13 +10,14 @@ class SaveResultImpl @Inject constructor(private val takeRulse: TakeRulse): Save
 
     override fun getResult(): Result? = result
 
-    override fun save(answers: Map<String, String>, countAnswer: Int, countTask: Int) {
-        result = Result(answers, countAnswer, countTask, takeRulse.getRulse().name)
+    override fun save(answers: Map<String, String>, countAnswer: Int, countTask: Int, mode: String) {
+        result = Result(answers, countAnswer, countTask, takeRulse.getRulse().theme, mode)
     }
 }
 data class Result(
     val answers: Map<String, String>,
     val countAnswer: Int,
     val countTask: Int,
-    val theme: String
+    val theme: String,
+    val mode: String
 )

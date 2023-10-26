@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 open class Test {
@@ -44,17 +45,17 @@ class TestViewModel @Inject constructor(
     private var modeTesting = true
 
     init {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             try {
                 _test.emit(Test.PlayLoad)
-                val data =  takeDataFromFireStore.takePictcher().await().data?.toMutableMap()
+                val data = withContext(Dispatchers.IO){ takeDataFromFireStore.takePictcher().await().data?.toMutableMap() }
                 viewMap = data
                 _test.emit(Test.StopLoad)
                 random()
                     //Log.e(null, "data = ${data.await()}")
             } catch (e: Throwable) {
                 _test.emit(Test.Error(e.message ?: "Error"))
-                Log.e(null,e.message?: "Error")
+                Log.e("img",e.message?: "Error")
             } finally {
                 _test.emit(Test.StopLoad)
             }
@@ -75,7 +76,7 @@ class TestViewModel @Inject constructor(
             val randomInt = (0 until size).random()
             _test.emit(Test.TestImg(values?.get(randomInt).toString()))
             answer = keys?.get(randomInt)?: ""
-            Log.e(null,"key = $answer\nvalue = ${values?.get(randomInt)}")
+            Log.e("img","key = $answer\nvalue = ${values?.get(randomInt)}")
             viewMap?.remove(answer)
         }
     }
@@ -120,7 +121,8 @@ class TestViewModel @Inject constructor(
                             saveResult.save(
                                 countAnswer = countAnswer,
                                 answers = answersMap,
-                                countTask = task
+                                countTask = task,
+                                mode = "Картинки"
                             )
                             _test.emit(Test.NextStep(countAnswer))
                         }

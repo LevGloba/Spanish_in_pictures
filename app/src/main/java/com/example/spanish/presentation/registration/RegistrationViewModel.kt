@@ -25,21 +25,14 @@ class RegistrationViewModel : ViewModel() {
         email: String,
         password: String,
         confirmPassword: String,
-        lastName: String,
-        firstName: String,
-        emailTeacher: String
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            if (!email.isEmailValid() || !emailTeacher.isEmailValid())
+            if (!email.isEmailValid())
                 _uiState.emit(RegistrationStatus.Error("Email is Invalid!"))
             else if (password.isEmpty())
                 _uiState.emit(RegistrationStatus.Error("Password is Empty!"))
             else if (confirmPassword != password)
                 _uiState.emit(RegistrationStatus.Error( "ConfirmPassword is't matching password!"))
-            else if (lastName.isEmpty())
-                _uiState.emit(RegistrationStatus.Error( "Last name is Empty!"))
-            else if (firstName.isEmpty())
-                _uiState.emit(RegistrationStatus.Error("Last name is Empty!"))
             else {
                 try {
                     SingltonObject.auth.createUserWithEmailAndPassword(email, password)

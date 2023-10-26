@@ -129,7 +129,8 @@ class TestMP3ViewModel @Inject constructor(takeRulse: TakeRulse,private val save
                             saveResult.save(
                                 countAnswer = countAnswer,
                                 answers = answersMap,
-                                countTask = taks
+                                countTask = taks,
+                                mode = "Аудиофайлы"
                             )
                             _state.emit(TestMP3State.NextStep(countAnswer))
                         }

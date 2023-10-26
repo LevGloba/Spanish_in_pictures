@@ -62,7 +62,7 @@ class FinishFragment: Fragment(R.layout.fragment_finish) {
     }
 
     private fun sendEmail(result: Result) {
-        val subject = "${result.theme}: ${result.countAnswer}/${result.countTask}"
+        val subject = "${result.mode}: ${result.theme}: ${result.countAnswer}/${result.countTask}"
         val body = result.answers.toString()
         val intent = Intent(Intent.ACTION_SEND)
         intent.putExtra(Intent.EXTRA_SUBJECT, subject)

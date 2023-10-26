@@ -21,22 +21,15 @@ class TakeDataFromFireStoreImpl @Inject constructor(private val takeRulse: TakeR
             tabl
         ).document(
             doc
-        ).get(Source.SERVER).addOnSuccessListener {
-            Log.e(null, "take = ${it.data}")
-          }
-    }
-
-    override suspend fun taleMp3(): Task<DocumentSnapshot> {
-        val a = Requests.TESTMP3
-        val tabl = a.tabl
-        val doc = a.doc
-        return SingltonObject.db.collection(
-            tabl
-        ).document(
-            doc
-        ).get(Source.SERVER).addOnSuccessListener {
-            Log.e(null, "take = ${it.data}")
+        ).get(Source.DEFAULT).addOnSuccessListener {
+            Log.e("img", "take = ${it.data}")
         }
+            .addOnFailureListener { error ->
+                Log.e("img", "get failed $error")
+                error.stackTrace.forEach {
+                    Log.e("img", "$it")
+                }
+            }
     }
 
 }

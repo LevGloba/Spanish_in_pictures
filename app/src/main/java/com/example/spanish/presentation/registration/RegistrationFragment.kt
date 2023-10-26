@@ -55,10 +55,7 @@ class RegistrationFragment : Fragment() {
                 viewModel.createUserWithEmail(
                     email = emailET.text.toString(),
                     password = passwordET.text.toString(),
-                    confirmPassword = passwordRepeatET.text.toString(),
-                    lastName = lastnameET.text.toString(),
-                    firstName = nameET.text.toString(),
-                    emailTeacher = teachersEmailET.text.toString()
+                    confirmPassword = passwordRepeatET.text.toString()
                 )
             }
         }

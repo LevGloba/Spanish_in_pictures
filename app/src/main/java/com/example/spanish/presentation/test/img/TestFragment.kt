@@ -89,6 +89,7 @@ class TestFragment : Fragment() {
     }
 
     private fun loadImg(img: String?) {
+        Log.e("img",img?: "null")
         Glide
             .with(this)
             .load(img)
