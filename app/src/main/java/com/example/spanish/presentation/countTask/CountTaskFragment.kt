@@ -46,7 +46,7 @@ class CountTaskFragment : Fragment() {
         binding.run {
             try {
                 val countTask = editTextEnterCountTasks.text.toString().toInt()
-                if (countTask in 1..5)
+                if (countTask in 1..20)
                     when(arguments?.getBoolean("img")) {
                         true -> findNavController().navigate(
                             R.id.testFragment, bundleOf(
@@ -62,9 +62,9 @@ class CountTaskFragment : Fragment() {
                         )
                     }
                 else
-                    editTextEnterCountTasks.error = "Введите цифру от 1 до 5"
+                    editTextEnterCountTasks.error = "Введите цифру от 1 до 20"
             }catch (e: Throwable) {
-                editTextEnterCountTasks.error = "Введите цифру от 1 до 5"
+                editTextEnterCountTasks.error = "Введите цифру от 1 до 20"
             }
         }
     }

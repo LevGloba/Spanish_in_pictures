@@ -36,7 +36,22 @@ class TestMP3ViewModel @Inject constructor(takeRulse: TakeRulse,private val save
         "la cabra montés" to R.raw.cabra_montes,
         "el lobo ibérico" to R.raw.lobo_iberico,
         "el lince ibérico" to R.raw.lince_iberico,
-        "la liebre" to R.raw.liebre
+        "la liebre" to R.raw.liebre,
+        "araña" to R.raw.arana,
+        "tortuga" to R.raw.tortuga,
+        "lagarto" to R.raw.lagarto,
+        "escorpión" to R.raw.escorpion,
+        "serpiente" to R.raw.serpiente,
+        "conejo" to R.raw.conejo,
+        "gallina" to R.raw.gallina,
+        "vaca" to R.raw.vaca,
+        "pato" to R.raw.pato,
+        "cabra" to R.raw.cabra,
+        "toro" to R.raw.toro,
+        "abubilla" to R.raw.abubilla,
+        "cigüeña" to R.raw.ciguena,
+        "gorrión común" to R.raw.gorrion_comun,
+        "mirlo común" to R.raw.mirlo_comun
     )
 
     private val mapFlora = mapOf(
@@ -44,7 +59,22 @@ class TestMP3ViewModel @Inject constructor(takeRulse: TakeRulse,private val save
         "la aceituna" to R.raw.aceituna,
         "la cereza" to R.raw.cereza,
         "el kaki " to R.raw.kaki_caqui,
-        "la manzana" to R.raw.manzana
+        "la manzana" to R.raw.manzana,
+        "melocotón" to R.raw.melocoton,
+        "pera" to R.raw.pera,
+        "uvas" to R.raw.uvas,
+        "níspero" to R.raw.nispero,
+        "chirimoya" to R.raw.chirimoya,
+        "limón" to R.raw.limon,
+        "pitaya" to R.raw.pitaya,
+        "naranja" to R.raw.naranja,
+        "acai" to R.raw.acai,
+        "carambola" to R.raw.carambola,
+        "guayaba" to R.raw.guayaba,
+        "madroño" to R.raw.madrono,
+        "higuera" to R.raw.higuera,
+        "tamrindo" to R.raw.tamrindo,
+        "platano" to R.raw.platano
     )
 
     private var viewMap: MutableMap<String, Int>? = null

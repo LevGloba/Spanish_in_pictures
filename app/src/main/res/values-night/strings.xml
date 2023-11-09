@@ -41,6 +41,6 @@
     <string name="_5_5">5/5</string>
     <string name="RESULT">ИТОГ</string>
     <string name="exit_test">ЗАВЕРШИТЬ</string>
-    <string name="_1_5">от 1 до 5</string>
+    <string name="_1_20">от 1 до 20</string>
     <string name="no_try">НЕ ПРАВИЛЬНО</string>
 </resources>
