@@ -86,7 +86,7 @@ class TestViewModel @Inject constructor(
         viewModelScope.launch {
             when (modeTesting) {
                 true -> {
-                    if (str.isNotEmpty())
+                    if (str.isNotBlank())
                         when (s) {
                             str -> {
                                 if (!viewMap.isNullOrEmpty()) {

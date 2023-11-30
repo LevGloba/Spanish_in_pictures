@@ -33,6 +33,7 @@
             android:layout_height="60dp"
             android:autofillHints="password"
             android:hint="@string/password"
+            android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@id/bt_ok"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

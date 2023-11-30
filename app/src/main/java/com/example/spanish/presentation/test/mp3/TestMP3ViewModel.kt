@@ -124,7 +124,7 @@ class TestMP3ViewModel @Inject constructor(takeRulse: TakeRulse,private val save
         viewModelScope.launch {
             when (modeTesting) {
                 true -> {
-                    if (str.isNotEmpty())
+                    if (str.isNotBlank())
                         when (s) {
                             str -> {
                                 if (!viewMap.isNullOrEmpty()) {

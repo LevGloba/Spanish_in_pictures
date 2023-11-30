@@ -52,13 +52,13 @@ class ChooseModeTestingFragment : Fragment() {
         }
         binding.buttonAnswer.setOnClickListener {
             if (arguments?.getBoolean("skipCountTask", false) == true)
-                findNavController().navigate(R.id.testFragment)
+                findNavController().navigate(R.id.testFragment, bundleOf("modeTetsting" to true))
             else
                 findNavController().navigate(R.id.countTaskFragment)
         }
         binding.buttonMp3.setOnClickListener {
             if (arguments?.getBoolean("skipCountTask", false) == true)
-                findNavController().navigate(R.id.testMP3Fragment)
+                findNavController().navigate(R.id.testMP3Fragment, bundleOf("modeTetsting" to true))
             else
                 findNavController().navigate(R.id.countTaskFragment, bundleOf(
                     "img" to false
